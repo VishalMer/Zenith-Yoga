@@ -235,7 +235,7 @@ h1, h2, h3, h4 {
     max-width: 100%;
     height: auto;
     border-radius: var(--border-radius);
-    box-shadow: var(--shadow-hover);
+    /* box-shadow: var(--shadow-hover); */
     max-height: 500px;
     object-fit: cover;
 }
