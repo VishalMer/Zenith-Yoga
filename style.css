@@ -532,7 +532,7 @@ h1, h2, h3, h4 {
     width: 100%;
     height: auto;
     border-radius: var(--border-radius);
-    box-shadow: var(--shadow);
+    /* box-shadow: var(--shadow); */
     /* Responsive Images: max-width ensures images don't break on mobile */
     max-width: 100%;
 }
