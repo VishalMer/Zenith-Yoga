@@ -1,11 +1,3 @@
-/* ============================================
-   Zenith Yoga & Wellness - JavaScript
-   ============================================
-   REMINDER: Consider using .webp format for all images
-   REMINDER: All images have loading="lazy" except hero image
-   ============================================ */
-
-// Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
     
     // ============================================
@@ -27,87 +19,39 @@ document.addEventListener('DOMContentLoaded', function() {
     // Close mobile menu when a link is clicked
     navLinks.forEach(link => {
         link.addEventListener('click', function() {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
+            if (hamburger) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
         });
     });
 
     // Close mobile menu when clicking outside
     document.addEventListener('click', function(event) {
-        const isClickInsideNav = navMenu.contains(event.target);
-        const isClickOnHamburger = hamburger.contains(event.target);
-        
-        if (!isClickInsideNav && !isClickOnHamburger && navMenu.classList.contains('active')) {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
+        if (hamburger && navMenu) {
+            const isClickInsideNav = navMenu.contains(event.target);
+            const isClickOnHamburger = hamburger.contains(event.target);
+            
+            if (!isClickInsideNav && !isClickOnHamburger && navMenu.classList.contains('active')) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
         }
     });
 
     // ============================================
-    // Smooth Scrolling for Navigation Links
-    // ============================================
-    
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            
-            if (targetId !== '#') {
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    const navHeight = document.querySelector('.navbar').offsetHeight;
-                    const targetPosition = targetElement.offsetTop - navHeight;
-                    
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            }
-        });
-    });
-
-    // ============================================
-    // Active Navigation Link on Scroll
-    // ============================================
-    
-    const sections = document.querySelectorAll('section[id]');
-    
-    function updateActiveNavLink() {
-        const scrollPosition = window.scrollY;
-        const navHeight = document.querySelector('.navbar').offsetHeight;
-        
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop - navHeight - 100;
-            const sectionHeight = section.offsetHeight;
-            const sectionId = section.getAttribute('id');
-            
-            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === `#${sectionId}`) {
-                        link.classList.add('active');
-                    }
-                });
-            }
-        });
-    }
-    
-    window.addEventListener('scroll', updateActiveNavLink);
-    updateActiveNavLink(); // Initial call
-
-    // ============================================
-    // Navbar Background on Scroll
+    // Navbar Shadow on Scroll
     // ============================================
     
     const navbar = document.querySelector('.navbar');
     
     function updateNavbarStyle() {
-        if (window.scrollY > 50) {
-            navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.15)';
-        } else {
-            navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+        if (navbar) {
+            if (window.scrollY > 50) {
+                navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.15)';
+            } else {
+                navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+            }
         }
     }
     
@@ -227,32 +171,40 @@ document.addEventListener('DOMContentLoaded', function() {
     enrollButtons.forEach(button => {
         button.addEventListener('click', function() {
             const classCard = this.closest('.class-card');
-            const className = classCard.querySelector('h3').textContent;
+            const className = classCard ? classCard.querySelector('h3').textContent : 'this class';
             
-            showNotification(`You're interested in ${className}! Please fill out the contact form below to register.`, 'success');
-            
-            // Scroll to contact section
-            const contactSection = document.getElementById('contact');
-            if (contactSection) {
-                const navHeight = document.querySelector('.navbar').offsetHeight;
-                const targetPosition = contactSection.offsetTop - navHeight;
-                
-                setTimeout(() => {
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                }, 500);
-            }
+            // Redirect to contact page with class info
+            window.location.href = `contact.html?class=${encodeURIComponent(className)}`;
         });
     });
+
+    // ============================================
+    // Pre-fill Contact Form from URL (for enroll redirects)
+    // ============================================
+    
+    const urlParams = new URLSearchParams(window.location.search);
+    const classParam = urlParams.get('class');
+    
+    if (classParam && contactForm) {
+        const subjectField = document.getElementById('subject');
+        const messageField = document.getElementById('message');
+        
+        if (subjectField) {
+            subjectField.value = 'class-inquiry';
+        }
+        if (messageField) {
+            messageField.value = `I'm interested in enrolling for the ${classParam} class. Please send me more information about schedules and pricing.`;
+        }
+        
+        showNotification(`You're interested in ${classParam}! Please complete the form below to register.`, 'success');
+    }
 
     // ============================================
     // Scroll Reveal Animation
     // ============================================
     
     function revealOnScroll() {
-        const revealElements = document.querySelectorAll('.class-card, .testimonial-card, .feature, .about-image, .info-item');
+        const revealElements = document.querySelectorAll('.class-card, .testimonial-card, .feature, .about-image, .info-item, .stat-item');
         const windowHeight = window.innerHeight;
         
         revealElements.forEach(element => {
@@ -266,16 +218,18 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Initialize reveal elements
-    const revealElements = document.querySelectorAll('.class-card, .testimonial-card, .feature, .about-image, .info-item');
-    revealElements.forEach(element => {
-        element.style.opacity = '0';
-        element.style.transform = 'translateY(30px)';
-        element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    });
-    
-    window.addEventListener('scroll', revealOnScroll);
-    revealOnScroll(); // Initial call
+    // Initialize reveal elements (only if reduced motion is not preferred)
+    if (!prefersReducedMotion()) {
+        const revealElements = document.querySelectorAll('.class-card, .testimonial-card, .feature, .about-image, .info-item, .stat-item');
+        revealElements.forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(30px)';
+            element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        });
+        
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll(); // Initial call
+    }
 
     // ============================================
     // Lazy Loading Support (Intersection Observer)
@@ -309,7 +263,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     document.addEventListener('keydown', function(e) {
         // ESC key closes mobile menu
-        if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+        if (e.key === 'Escape' && navMenu && navMenu.classList.contains('active')) {
             hamburger.classList.remove('active');
             navMenu.classList.remove('active');
         }
@@ -320,12 +274,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // ============================================
     
     console.log('Zenith Yoga & Wellness Website Loaded Successfully');
-    console.log('---------------------------------------------------');
-    console.log('SEO Reminders:');
-    console.log('• Convert images to .webp format for faster loading');
-    console.log('• Hero image does NOT have lazy loading (above the fold)');
-    console.log('• All other images have loading="lazy" applied');
-    console.log('• All images have max-width: 100%; height: auto; for responsiveness');
 });
 
 // ============================================
@@ -335,17 +283,4 @@ document.addEventListener('DOMContentLoaded', function() {
 // Check if user prefers reduced motion
 function prefersReducedMotion() {
     return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-}
-
-// Debounce function for scroll events
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
 }
