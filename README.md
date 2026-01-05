@@ -27,17 +27,9 @@
 
 ## 📸 Preview
 
-<!-- 🔄 PLACEHOLDER: Replace with your website screenshots -->
 <p align="center">
-  <img src="YOUR_SCREENSHOT_HERE.png" alt="Zenith Yoga Homepage Preview" width="100%"/>
+  <img src="imgs/Home-preview.gif" alt="Zenith Yoga Homepage Preview" width="100%"/>
 </p>
-
-<!-- Optional: Add more screenshots in a grid layout -->
-<!-- 
-| Home Page | Classes Page | About Page |
-|:-:|:-:|:-:|
-| ![Home](YOUR_HOME_SCREENSHOT.png) | ![Classes](YOUR_CLASSES_SCREENSHOT.png) | ![About](YOUR_ABOUT_SCREENSHOT.png) |
--->
 
 ---
 
@@ -58,16 +50,14 @@
 
 ## 🌟 Demo
 
-<!-- 🔄 PLACEHOLDER: Add your live demo link here -->
-🔗 **Live Site:** [View Demo](YOUR_LIVE_DEMO_LINK_HERE)
+🔗 **Live Site:** [COming Soon](LIVE_DEMO_LINK_HERE)
 
 ### 📱 Responsive Design
 
-<!-- 🔄 PLACEHOLDER: Add responsive screenshots -->
 <p align="center">
-  <img src="YOUR_MOBILE_SCREENSHOT.png" alt="Mobile View" width="200"/>
+  <img src="imgs/MobileVIew.gif" alt="Mobile View" width="200"/>
   &nbsp;&nbsp;&nbsp;
-  <img src="YOUR_TABLET_SCREENSHOT.png" alt="Tablet View" width="300"/>
+  <img src="imgs/TabView.gif" alt="Tablet View" width="300"/>
 </p>
 
 ---
@@ -111,12 +101,12 @@ The design uses a calming, nature-inspired color scheme:
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/YOUR_USERNAME/zenith-yoga-wellness.git
+   git clone https://github.com/vishalmer/zenith-yoga.git
    ```
 
 2. **Navigate to project directory**
    ```bash
-   cd zenith-yoga-wellness
+   cd zenith-yoga
    ```
 
 3. **Open in browser**
@@ -180,15 +170,6 @@ zenith-yoga-wellness/
 ├── 📖 README.md           # Documentation
 │
 └── 📁 imgs/               # Image assets
-    ├── Logo - zenith yoga & wellness.png
-    ├── Home.png
-    ├── Vinyasa-flow-yoga.png
-    ├── Hatha-yoga.png
-    ├── Restorative-zen.png
-    ├── Power-yoga.png
-    ├── Prenatal-yoga.png
-    ├── Meditation-mindfulness.png
-    └── ... (team & testimonial images)
 ```
 
 ---
@@ -253,8 +234,7 @@ This project is open source and available under the [MIT License](LICENSE).
 Have questions? Reach out!
 
 - 📧 **Email:** contact@zenithyoga.com
-- 📍 **Location:** Your City, Country
-- 📱 **Phone:** +1 (123) 456-7890
+- 📍 **Location:** Rajkot, India
 
 ---
 
