@@ -50,7 +50,7 @@
 
 ## 🌟 Demo
 
-🔗 **Live Site:** [COming Soon](LIVE_DEMO_LINK_HERE)
+🔗 **Live Site:** [Coming Soon](LIVE_DEMO_LINK_HERE)
 
 ### 📱 Responsive Design
 
