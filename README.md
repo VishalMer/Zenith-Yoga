@@ -56,8 +56,14 @@
 
 <p align="center">
   <img src="imgs/MobileVIew.gif" alt="Mobile View" width="200"/>
-  &nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <img src="imgs/TabView.gif" alt="Tablet View" width="300"/>
+</p>
+
+<p align="center">
+  <strong>📱 Mobile View</strong>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <strong>📟 Tablet View</strong>
 </p>
 
 ---
