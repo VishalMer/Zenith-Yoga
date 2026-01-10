@@ -50,7 +50,7 @@
 
 ## 🌟 Demo
 
-🔗 **Live Site:** [Coming Soon](LIVE_DEMO_LINK_HERE)
+🔗 **Live Site:** [COming Soon](LIVE_DEMO_LINK_HERE)
 
 ### 📱 Responsive Design
 
@@ -170,6 +170,15 @@ zenith-yoga-wellness/
 ├── 📖 README.md           # Documentation
 │
 └── 📁 imgs/               # Image assets
+    ├── Logo - zenith yoga & wellness.png
+    ├── Home.png
+    ├── Vinyasa-flow-yoga.png
+    ├── Hatha-yoga.png
+    ├── Restorative-zen.png
+    ├── Power-yoga.png
+    ├── Prenatal-yoga.png
+    ├── Meditation-mindfulness.png
+    └── ... (team & testimonial images)
 ```
 
 ---
@@ -234,7 +243,8 @@ This project is open source and available under the [MIT License](LICENSE).
 Have questions? Reach out!
 
 - 📧 **Email:** contact@zenithyoga.com
-- 📍 **Location:** Rajkot, India
+- 📍 **Location:** Your City, Country
+- 📱 **Phone:** +1 (123) 456-7890
 
 ---
 

@@ -1,9 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     
-    // ============================================
     // Mobile Navigation Toggle
-    // ============================================
-    
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
     const navLinks = document.querySelectorAll('.nav-link');
@@ -39,10 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // ============================================
     // Navbar Shadow on Scroll
-    // ============================================
-    
     const navbar = document.querySelector('.navbar');
     
     function updateNavbarStyle() {
@@ -57,10 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     window.addEventListener('scroll', updateNavbarStyle);
 
-    // ============================================
-    // Contact Form Handling
-    // ============================================
-    
+    // Contact Form Handling  
     const contactForm = document.getElementById('contactForm');
     
     if (contactForm) {
@@ -92,10 +83,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // ============================================
-    // Notification System
-    // ============================================
-    
+    // Notification System    
     function showNotification(message, type) {
         // Remove existing notification
         const existingNotification = document.querySelector('.notification');
@@ -162,10 +150,7 @@ document.addEventListener('DOMContentLoaded', function() {
     `;
     document.head.appendChild(notificationStyles);
 
-    // ============================================
-    // Enroll Button Click Handling
-    // ============================================
-    
+    // Enroll Button Click Handling    
     const enrollButtons = document.querySelectorAll('.enroll-btn');
     
     enrollButtons.forEach(button => {
@@ -178,10 +163,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // ============================================
-    // Pre-fill Contact Form from URL (for enroll redirects)
-    // ============================================
-    
+    // Pre-fill Contact Form from URL (for enroll redirects)    
     const urlParams = new URLSearchParams(window.location.search);
     const classParam = urlParams.get('class');
     
@@ -199,10 +181,7 @@ document.addEventListener('DOMContentLoaded', function() {
         showNotification(`You're interested in ${classParam}! Please complete the form below to register.`, 'success');
     }
 
-    // ============================================
-    // Scroll Reveal Animation
-    // ============================================
-    
+    // Scroll Reveal Animation    
     function revealOnScroll() {
         const revealElements = document.querySelectorAll('.class-card, .testimonial-card, .feature, .about-image, .info-item, .stat-item');
         const windowHeight = window.innerHeight;
@@ -231,10 +210,7 @@ document.addEventListener('DOMContentLoaded', function() {
         revealOnScroll(); // Initial call
     }
 
-    // ============================================
-    // Lazy Loading Support (Intersection Observer)
-    // ============================================
-    
+    // Lazy Loading Support (Intersection Observer)    
     if ('IntersectionObserver' in window) {
         const lazyImages = document.querySelectorAll('img[loading="lazy"]');
         
@@ -242,8 +218,6 @@ document.addEventListener('DOMContentLoaded', function() {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const img = entry.target;
-                    // The browser handles lazy loading natively
-                    // This observer is for any additional effects if needed
                     img.classList.add('loaded');
                     observer.unobserve(img);
                 }
@@ -257,10 +231,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // ============================================
-    // Accessibility: Keyboard Navigation
-    // ============================================
-    
+    // Accessibility: Keyboard Navigation    
     document.addEventListener('keydown', function(e) {
         // ESC key closes mobile menu
         if (e.key === 'Escape' && navMenu && navMenu.classList.contains('active')) {
@@ -269,16 +240,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // ============================================
-    // Console Log for Development
-    // ============================================
-    
+    // Console Log for Development    
     console.log('Zenith Yoga & Wellness Website Loaded Successfully');
 });
 
-// ============================================
-// Utility Functions
-// ============================================
 
 // Check if user prefers reduced motion
 function prefersReducedMotion() {
